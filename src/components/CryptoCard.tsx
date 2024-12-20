@@ -48,41 +48,42 @@ export function CryptoCard({ coin }: CryptoCardProps) {
           </div>
         </div>
 
-      <div className="space-y-4">
-        <div className="bg-black bg-opacity-30 p-4 rounded-lg backdrop-blur-sm">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-gray-400">Current Price</span>
-            <span className="text-xl font-bold text-white">₹{coin.current_price.toLocaleString()}</span>
-          </div>
-          <div className="flex justify-between items-center">
-            <span className="text-gray-400">24h Change</span>
-            <div className="flex items-center space-x-1">
-              <PriceIcon className={`w-4 h-4 ${priceChangeColor}`} />
-              <span className={`${priceChangeColor} font-medium`}>
-                {Math.abs(coin.price_change_percentage_24h).toFixed(2)}%
-              </span>
+        <div className="space-y-4">
+          <div className="bg-black bg-opacity-30 p-4 rounded-lg backdrop-blur-sm">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-gray-400">Current Price</span>
+              <span className="text-xl font-bold text-white">₹{coin.current_price.toLocaleString()}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-400">24h Change</span>
+              <div className="flex items-center space-x-1">
+                <PriceIcon className={`w-4 h-4 ${priceChangeColor}`} />
+                <span className={`${priceChangeColor} font-medium`}>
+                  {Math.abs(coin.price_change_percentage_24h).toFixed(2)}%
+                </span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {user?.email === 'safi22052004@gmail.com' && (
-          <div className="grid grid-cols-2 gap-4">
-            <button
-              onClick={handleBuyClick}
-              className="bg-gradient-to-r from-green-600 to-green-700 text-white py-2 px-4 rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center justify-center space-x-2"
-            >
-              <span>Buy Now</span>
-            </button>
-            <button
-              onClick={handleSellClick}
-              className="bg-gradient-to-r from-red-600 to-red-700 text-white py-2 px-4 rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-300 flex items-center justify-center space-x-2"
-            >
-              <span>Sell Now</span>
-            </button>
-          </div>
-        )}
+          {user?.email === 'safi22052004@gmail.com' && (
+            <div className="grid grid-cols-2 gap-4">
+              <button
+                onClick={handleBuyClick}
+                className="bg-gradient-to-r from-green-600 to-green-700 text-white py-2 px-4 rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center justify-center space-x-2"
+              >
+                <span>Buy Now</span>
+              </button>
+              <button
+                onClick={handleSellClick}
+                disabled
+                className="bg-gradient-to-r from-gray-400 to-gray-500 text-white py-2 px-4 rounded-lg cursor-not-allowed opacity-50 flex items-center justify-center space-x-2"
+              >
+                <span>Sell Soon</span>
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
     </motion.div >
   );
 }
