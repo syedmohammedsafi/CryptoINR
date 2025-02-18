@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { AuthButton } from './AuthButton';
 import { Menu, X } from 'lucide-react';
-import  logo  from '../../public/logo.png';
+import  logo  from '../../src/logo.png';
 
 export function Navbar() {
   const { user } = useAuth();
